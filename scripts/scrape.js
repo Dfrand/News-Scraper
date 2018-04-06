@@ -12,7 +12,9 @@ var scrape = function (callback) {
             // Add the text and href of every link, and save them as properties of the result object
             result.title = $(this).children("a").text();
             result.link = $(this).children("a").attr("href");
-
+            // result.summary = $(this).find("div.tease-summary").text(); 
+             
+            // && result.summary !== "" 
             if (result.title !== "" && result.link !== "") {
                 articlesArr.push(result);
             }
