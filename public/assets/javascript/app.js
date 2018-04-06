@@ -1,15 +1,5 @@
 $(document).ready(function () {
-    var $winwidth = $(window).width();
-    $("img.main-img").attr({
-        width: $winwidth
-    });
-    $(window).bind("resize", function () {
-        var $winwidth = $(window).width();
-        $("img.main-img").attr({
-            width: $winwidth
-        });
-    });
-
+  
     $(".scrape").click(function (event) {
         event.preventDefault();
         $.get("/api/fetch").then(function (data) {
@@ -19,7 +9,6 @@ $(document).ready(function () {
                     location.reload()
                 });
             });
-            //location.reload();
         });
     });
 
@@ -72,7 +61,7 @@ $(document).ready(function () {
             $('#noteModalLabel').append(' ' + thisId);
             //add notes to body of modal, will loop through if multiple notes
             for (var i = 0; i < data.note.length; i++) {
-                var button = ' <a href=/deleteNote/' + data.note[i]._id + '><i class="pull-right fa fa-times fa-2x deletex" aria-hidden="true"></i></a>';
+                var button = ' <a href=/deleteNote/' + data.note[i]._id + '><i class="pull-right fa fa-times fa-2x deleteX btn-light" aria-hidden="true"></i></a>';
                 $('#notesBody').append('<div class="panel panel-default"><div class="noteText panel-body">' + data.note[i].body + '  ' + button + '</div></div>');
             }
         });
